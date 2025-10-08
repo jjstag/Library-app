@@ -1,6 +1,6 @@
 const myLibrary = []
 const container = document.querySelector(".container")
-const newBookBtn = document.getElementById('newBookBtn');
+const newBookBtn = document.querySelector('#newBookBtn');
 const newBookDialog = document.querySelector("dialog")
 
 // CONSTRUCTING THE BOOK OBJECT
@@ -15,17 +15,17 @@ function Book(title, author, pages, isRead, id) {
     this.id = id;
     this.info = function() {
         if (isRead === true) {
-            return (`${this.title} by ${this.author}, ${this.pages} pages, has been read.`)
+            return (`${this.title} by ${this.author}, ${this.pages} pages, has been read. ID: <span style="color: gray; font-family: monospace">${this.id}</span>`)
         } else if (isRead === false) {
-            return (`${this.title} by ${this.author}, ${this.pages} pages, has not been read yet.`)
+            return (`${this.title} by ${this.author}, ${this.pages} pages, has not been read yet. ID: <span style="color: gray; font-family: monospace">${this.id}</span>`)
         } else {
-            return (`${this.title} by ${this.author}, ${this.pages} pages.`)
+            return (`${this.title} by ${this.author}, ${this.pages} pages. ID: <span style="color: gray; font-family: monospace">${this.id}</span>`)
         }
     };
 }
 
 function addBookToLibrary(title, author, pages, isRead) {
-    myLibrary.push(new Book(title, author, pages, isRead, crypto.randomUUID))
+    myLibrary.push(new Book(title, author, pages, isRead, crypto.randomUUID()))
 }
 
 // EXAMPLE BOOKS
@@ -33,7 +33,7 @@ function addBookToLibrary(title, author, pages, isRead) {
 function displayBooks() {
     myLibrary.forEach(book => {
         const bookCard = document.createElement("div");
-        bookCard.textContent = book.info()
+        bookCard.innerHTML = book.info()
         container.appendChild(bookCard);
     });
 }
@@ -43,6 +43,6 @@ addBookToLibrary("My Book", "A DEV", 300, true)
 displayBooks()
 
   newBookBtn.addEventListener('click', () => {
-    newBookDialog.showModal();
+    newBookDialog.show();
     // const
   });
