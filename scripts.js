@@ -1,6 +1,9 @@
 const myLibrary = []
 const container = document.querySelector(".container")
+const newBookBtn = document.getElementById('newBookBtn');
+const newBookDialog = document.querySelector("dialog")
 
+// CONSTRUCTING THE BOOK OBJECT
 function Book(title, author, pages, isRead, id) {
     if (!new.target) {
         throw Error("You must use the 'new' operator to call the constructor");
@@ -25,8 +28,7 @@ function addBookToLibrary(title, author, pages, isRead) {
     myLibrary.push(new Book(title, author, pages, isRead, crypto.randomUUID))
 }
 
-addBookToLibrary("TheHobbit", "J. R. R. Tolken", 295, false)
-addBookToLibrary("My Book", "A DEV", 300, true)
+// EXAMPLE BOOKS
 
 function displayBooks() {
     myLibrary.forEach(book => {
@@ -36,4 +38,11 @@ function displayBooks() {
     });
 }
 
+addBookToLibrary("TheHobbit", "J. R. R. Tolken", 295, false)
+addBookToLibrary("My Book", "A DEV", 300, true)
 displayBooks()
+
+  newBookBtn.addEventListener('click', () => {
+    newBookDialog.showModal();
+    // const
+  });
