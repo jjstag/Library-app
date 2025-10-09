@@ -10,18 +10,18 @@
     <div class="container">
         <button id="newBookBtn">New Book</button>
         <dialog closedby="any">
-            <form action="">
+            <form action="" id="newBookForm">
                 <div>
                     <label for="book-name">Book name</label>
-                    <input type="text" name="book-name" id="book-name">
+                    <input type="text" name="book-name" id="book-name" placeholder="The Hobbit">
                 </div>
                 <div>
                     <label for="author-name">Author name</label>
-                    <input type="text" name="author-name" id="author-name">
+                    <input type="text" name="author-name" id="author-name" placeholder="J. R. R. Tolken">
                 </div>
                 <div>
                     <label for="pages">Length (pages)</label>
-                    <input type="tel" name="pages" id="pages">
+                    <input type="tel" name="pages" id="pages" placeholder="295">
                 </div>
                 <div>
                     <label for="is-read">Read</label>
@@ -32,6 +32,8 @@
                 <button type="submit">Submit</button>
             </form>
         </dialog>
+
+        <div id="book-container"></div>
     </div>
     <script src="./scripts.js"></script>
 </body>
