@@ -1,5 +1,8 @@
 // TODO:
-// fix xss vulnerability with 
+// fix xss vulnerability DONE
+// make book.info return an array and change "read: true/false" to"Has been read/Not read yet"
+// add a button to change read status
+// style
 
 const myLibrary = [];
 const container = document.querySelector(".container");
@@ -30,6 +33,7 @@ function displayBooks() {
     bookContainer.innerHTML = "";
     myLibrary.forEach(book => {
         const bookCard = document.createElement("div");
+        bookCard.dataset.id = book.ID
         bookContainer.appendChild(bookCard);
         for (property in book) {
             const bookPropertyP = document.createElement("p")
