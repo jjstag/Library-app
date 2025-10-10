@@ -1,3 +1,6 @@
+// TODO:
+// fix xss vulnerability with 
+
 const myLibrary = [];
 const container = document.querySelector(".container");
 const newBookBtn = document.querySelector('#newBookBtn');
@@ -11,20 +14,11 @@ function Book(title, author, pages, isRead, id) {
     if (!new.target) {
         throw Error("You must use the 'new' operator to call the constructor");
     }
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.isRead = isRead;
-    this.id = id;
-    this.info = function() {
-        if (isRead === true) {
-            return (`${this.title} by ${this.author}, ${this.pages} pages, has been read. ID: <span style="color: gray; font-family: monospace">${this.id}</span>`);
-        } else if (isRead === false) {
-            return (`${this.title} by ${this.author}, ${this.pages} pages, has not been read yet. ID: <span style="color: gray; font-family: monospace">${this.id}</span>`);
-        } else {
-            return (`${this.title} by ${this.author}, ${this.pages} pages. ID: <span style="color: gray; font-family: monospace">${this.id}</span>`);
-        }
-    };
+    this.Title = title;
+    this.Author = author;
+    this.Pages = pages;
+    this.Read = isRead;
+    this.ID = id;
 }
 
 function addBookToLibrary(title, author, pages, isRead) {
@@ -36,8 +30,17 @@ function displayBooks() {
     bookContainer.innerHTML = "";
     myLibrary.forEach(book => {
         const bookCard = document.createElement("div");
-        bookCard.innerHTML = book.info();
         bookContainer.appendChild(bookCard);
+        for (property in book) {
+            const bookPropertyP = document.createElement("p")
+            bookPropertyP.style.class = "bookPropertyP"
+            bookPropertyP.textContent = property + ": " + book[property]
+            bookCard.appendChild(bookPropertyP)
+        }
+        const removeBookBtn = document.createElement("button")
+        removeBookBtn.style.class = "removeBookBtn"
+        removeBookBtn.textContent = "Remove Book"
+        bookCard.appendChild(removeBookBtn)
     });
 }
 
