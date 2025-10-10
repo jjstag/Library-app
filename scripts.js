@@ -41,6 +41,9 @@ function displayBooks() {
         removeBookBtn.style.class = "removeBookBtn"
         removeBookBtn.textContent = "Remove Book"
         bookCard.appendChild(removeBookBtn)
+        removeBookBtn.addEventListener("click", (e) => {
+            e.target.parentNode.remove()
+        });
     });
 }
 
