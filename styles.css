@@ -58,3 +58,25 @@ html, body {
 #book-container div {
     border: 1px solid black;
 }
+
+/* CSS */
+
+.bookCard img {
+    width: 25px;
+    vertical-align: -7px;
+    display: inline;
+    margin-left: 10px;
+}
+
+.bookCard img:hover {
+    filter: brightness(80%);
+    cursor:context-menu
+}
+
+img[src="./Images/book-closed.png"] {
+  width: 20px;
+}
+
+.bookCard p:nth-child(4) {
+    display: inline;
+}
