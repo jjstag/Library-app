@@ -31,7 +31,7 @@ function Book(title, author, pages, isRead, id) {
         } else if (this.isRead === false) {
             isReadText = "Not read yet"
         } else {
-            console.log("isreadtext does not match: " + isReadText)
+            console.log("isReadText does not match: " + isReadText)
         }
         return [
             this.title,
@@ -112,7 +112,6 @@ form.addEventListener("click", (e) => {
         newBookDialog.close();
         let formData = new FormData(e.currentTarget)
         addBookToLibrary(formData.get("book-name"), formData.get("author-name"), formData.get("pages"), formData.get("is-read") === "true");
-        console.log("FORMDATA ISREAD: " + formData.get("is-read"))
         // formData.get(name attribute)
         form.reset();
         displayBooks();
@@ -122,4 +121,3 @@ form.addEventListener("click", (e) => {
 addBookToLibrary("The Hobbit", "J. R. R. Tolken", 295, false);
 addBookToLibrary("My Book", "A DEV", 300, true);
 displayBooks();
-console.log(myLibrary)
