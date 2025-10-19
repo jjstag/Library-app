@@ -47,12 +47,21 @@ h1, h2, h3, h4, h5, h6 {
 html, body {
   height: 100%;
   font-family: Arial, Helvetica, sans-serif, system-ui;
+  font-weight: 600;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   height: 100%;
+  background: linear-gradient(
+    -50deg,
+    rgb(83, 23, 122),
+    rgb(63, 23, 122),
+    rgb(36, 23, 122)
+  );
+  padding: 12px 10px 10px;
+  gap: 15px;
 }
 
 dialog {
@@ -61,23 +70,94 @@ dialog {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
+  border-radius: 7px;
+  background: rgb(36, 23, 122);
+  /* background-attachment: fixed;
+  background-size: cover;
+  background-position: center; */
+  color: white
+}
+
+input {
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  accent-color: pink;
+  margin-left: 5px;
+}
+
+input:focus {
+  box-shadow: 0 0 8px pink;
+  caret-color: transparent;
+}
+
+input::placeholder {
+    padding-left: 2px;
+}
+
+#newBookBtn {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 7px;
+}
+
+#newBookForm {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  gap: 8px;
+}
+
+#newBookForm > div {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 705px) {
+  #newBookForm {
+    gap: 0;
+  }
+  #newBookForm > div {
+    flex-direction: column;
+  }
+  #newBookForm > div:last-of-type {
+    flex-direction: row;
+  }
+  #newBookForm label {
+    text-align: center;
+  }
+  input {
+    margin: 0;
+  }
+  input::placeholder {
+    padding: 0;
+    text-align: center;
+  }
+}
+
+#newBookForm button {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 7px;
 }
 
 #book-container {
   /* height: 100%; */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   /* grid-template-rows: 240px; */
-  grid-auto-rows: auto;
   gap: 20px;
 }
 
 .bookCard {
-  background-color: #3b2987;
+  background-color: #24177a;
   flex-direction: column;
   /* height: min-content; */
   padding: 5px 5px 30px 5px;
-  border: 20px solid #4e2987;
+  border: 20px solid #2f096c;
   border-radius: 7px;
   position: relative;
 }
@@ -88,17 +168,24 @@ dialog {
 
 .bookCard img {
   width: 25px;
-  vertical-align: -7px;
+  vertical-align: -4px;
   display: inline;
   margin-left: 10px;
 }
 
 .bookCard img:hover {
+  cursor: pointer;
+  box-shadow: 0 0 2px pink;
+}
+
+.bookCard img:active {
   filter: brightness(80%);
+  box-shadow: none;
 }
 
 img[src="./Images/book-closed.png"] {
   width: 20px;
+  vertical-align: -7px;
 }
 
 .bookCard p:nth-child(4) {
@@ -116,4 +203,14 @@ img[src="./Images/book-closed.png"] {
   bottom: 5px;
   right: 5px;
   left: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 2px #ffc0cb;
+}
+
+button:active {
+  box-shadow: none;
+  color: gray;
 }

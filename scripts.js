@@ -4,7 +4,8 @@
 // add a button to change read status DONE
 // make it work DONE
 // style
-    // change colors of book images to match
+    // change colors of book images to match NOT NEEDED
+    // make open book a png DONE
 
 const myLibrary = [];
 const container = document.querySelector(".container");
@@ -119,5 +120,5 @@ form.addEventListener("click", (e) => {
 })
 
 addBookToLibrary("The Hobbit", "J. R. R. Tolken", 295, false);
-addBookToLibrary("My Book", "A DEV", 300, true);
+addBookToLibrary("My Book", "D. E. V.", 300, true);
 displayBooks();
