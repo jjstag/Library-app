@@ -16,31 +16,33 @@ const form = document.querySelector("#newBookForm");
 
 
 // CONSTRUCTING THE BOOK OBJECT
-function Book(title, author, pages, isRead, id) {
-    if (!new.target) {
-        throw Error("You must use the 'new' operator to call the constructor");
-    }
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.isRead = isRead;
-    this.id = id;
-    this.info = function() {
-        let isReadText
-        if (this.isRead === true) {
-            isReadText = "Has been read"
-        } else if (this.isRead === false) {
-            isReadText = "Not read yet"
-        } else {
-            console.log("isReadText does not match: " + isReadText)
+class Book {
+    constructor(title, author, pages, isRead, id) {
+        if (!new.target) {
+            throw Error("You must use the 'new' operator to call the constructor");
         }
-        return [
-            this.title,
-            this.author,
-            this.pages,
-            isReadText,
-            this.id,
-        ]
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.isRead = isRead;
+        this.id = id;
+        this.info = function() {
+            let isReadText
+            if (this.isRead === true) {
+                isReadText = "Has been read"
+            } else if (this.isRead === false) {
+                isReadText = "Not read yet"
+            } else {
+                console.log("isReadText does not match: " + isReadText)
+            }
+            return [
+                this.title,
+                this.author,
+                this.pages,
+                isReadText,
+                this.id,
+            ]
+        }
     }
 }
 
