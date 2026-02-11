@@ -10,27 +10,27 @@
     <div class="container">
         <button id="newBookBtn">New Book</button>
         <dialog closedby="any">
-            <form action="" id="newBookForm">
+            <form action="" id="newBookForm" novalidate>
                 <div>
                     <label for="book-name">Book name</label>
-                    <input type="text" name="book-name" id="book-name" placeholder="The Hobbit">
+                    <input type="text" name="book-name" id="book-name" placeholder="The Hobbit" required>
                 </div>
                 <div>
                     <label for="author-name">Author name</label>
-                    <input type="text" name="author-name" id="author-name" placeholder="J. R. R. Tolken">
+                    <input type="text" name="author-name" id="author-name" placeholder="J. R. R. Tolken" required>
                 </div>
                 <div>
                     <label for="pages">Length in pages</label>
-                    <input type="tel" name="pages" id="pages" placeholder="295">
+                    <input type="tel" name="pages" id="pages" placeholder="295" required>
                 </div>
                 <div>
                     <label>
                         Read
-                        <input type="radio" name="is-read" value="true">
+                        <input type="radio" name="is-read" value="true" required>
                     </label>
                     <label>
                         Not Read
-                        <input type="radio" name="is-read" value="false">
+                        <input type="radio" name="is-read" value="false" required>
                     </label>
                 </div>
                 <button type="submit">Submit</button>

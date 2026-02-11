@@ -105,20 +105,56 @@ function displayBooks() {
     });
 }
 
+function checkBookName() {
+    const bookName = document.getElementById("book-name")
+    if (bookName.value) {
+        bookName.setCustomValidity("")
+    } else {
+        bookName.setCustomValidity("Book name may not be blank.")
+    }
+}
+function checkAuthorName() {
+    const authorName = document.getElementById("author-name")
+    if (authorName.value) {
+        authorName.setCustomValidity("")
+    } else {
+        authorName.setCustomValidity("Author name may not be blank.")
+    }
+}
+function checkPages() {
+    const pages = document.getElementById("pages")
+    if (pages.value) {
+        pages.setCustomValidity("")
+    } else {
+        pages.setCustomValidity("Pages may not be blank.")
+    }
+}
+
+
 newBookBtn.addEventListener('click', () => {
     newBookDialog.show();
 });
 
-form.addEventListener("click", (e) => {
-    if (e.target.type == "submit") {
-        e.preventDefault();
-        newBookDialog.close();
-        let formData = new FormData(e.currentTarget)
-        addBookToLibrary(formData.get("book-name"), formData.get("author-name"), formData.get("pages"), formData.get("is-read") === "true");
-        // formData.get(name attribute)
-        form.reset();
-        displayBooks();
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    
+    checkBookName()
+    checkAuthorName()
+    checkPages()
+
+    if (!form.checkValidity()) {
+        form.reportValidity()
+        return;
     }
+
+    checkBookName
+   
+    newBookDialog.close();
+    let formData = new FormData(e.currentTarget)
+    addBookToLibrary(formData.get("book-name"), formData.get("author-name"), formData.get("pages"), formData.get("is-read") === "true");
+    // formData.get(name attribute)
+    form.reset();
+    displayBooks();
 })
 
 addBookToLibrary("The Hobbit", "J. R. R. Tolken", 295, false);
